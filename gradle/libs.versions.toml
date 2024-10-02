@@ -3,7 +3,7 @@ agp = "8.3.2"
 
 okhttp = "4.9.1"
 converterKotlinxSerialization = "2.11.0"
-kotlinxSerializationJson = "1.7.2"
+kotlinxSerializationJson = "1.6.0"
 retrofit = "2.10.0"
 activityKtx = "1.9.2"
 

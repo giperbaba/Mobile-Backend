@@ -19,15 +19,11 @@ android {
 
         //для
         buildConfigField("String", "API_KEY", "\"http://10.10.146.19:8090/api/todo_list/\"")
-        buildConfigField(
-            "String",
-            "API_KEY",
-            "\"live_PgpCLkYzLwM85vALRiaRLQrGqabFIw1qF2UKe82Re94BdicYqXVhmy1xvwiIs52u\""
-        )
     }
 
     buildFeatures {
         viewBinding = true
+        buildConfig = true
     }
 
     buildTypes {

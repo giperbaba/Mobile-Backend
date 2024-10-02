@@ -10,16 +10,18 @@ import com.example.todo.entity.Task
 class TaskAdapter(
     private var tasks: MutableList<Task>,
     private val onTextChanged: (Task) -> Unit,
+    private val isDoneTask: (id: Long, isDone: Boolean) -> Unit,
     private val onDeleteTask: (Task) -> Unit
 ) : RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
 
     inner class TaskViewHolder(val binding: ItemTaskBinding) : RecyclerView.ViewHolder(binding.root) {
 
         init {
-            binding.checkboxIsDone.setOnCheckedChangeListener { _, isChecked ->
+            binding.checkboxIsDone.setOnCheckedChangeListener { _ ,isChecked ->
                 val position = adapterPosition
                 if (position != RecyclerView.NO_POSITION) {
                     tasks[position].isDone = isChecked
+                    isDoneTask(tasks[position].id, isChecked)
                     onTextChanged(tasks[position])
                 }
             }
@@ -45,7 +47,7 @@ class TaskAdapter(
             binding.deleteButton.setOnClickListener {
                 val position = adapterPosition
                 if (position != RecyclerView.NO_POSITION) {
-                    onDeleteTask(tasks[position])
+                    onDeleteTask.invoke(tasks[position])
                 }
             }
         }

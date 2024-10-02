@@ -1,4 +1,4 @@
-package com.example.todo
+package com.example.todo.repository.api
 
 import kotlinx.serialization.Serializable
 
@@ -6,5 +6,5 @@ import kotlinx.serialization.Serializable
 class TaskApi (
     val id: Long,
     val description: String,
-    val isDone: Boolean
+    val isDone: Boolean,
 )
